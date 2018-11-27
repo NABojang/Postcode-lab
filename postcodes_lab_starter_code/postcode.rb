@@ -17,10 +17,6 @@ class Postcodesio
     @single
   end
 
-  def get_multiple_postcodes
-    @multiple
-  end
-
   def get_status
     @single['status']
   end
