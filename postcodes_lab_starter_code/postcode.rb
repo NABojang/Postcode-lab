@@ -9,7 +9,6 @@ class Postcodesio
   base_uri 'https://api.postcodes.io'
 
   def initialize
-    @multiple
     @postcode1 = RandomData.new
     @single = @postcode1.random_postcodes
   end
@@ -18,8 +17,8 @@ class Postcodesio
     @single
   end
 
-  def get_multiple_postcodes(postcodes_array)
-    @multiple = JSON.parse(self.class.post('/postcodes', body: { "postcodes" => postcodes_array}).body)
+  def get_multiple_postcodes
+    @multiple
   end
 
   def get_status
@@ -67,25 +66,32 @@ class Postcodesio
   end
 
   def primary_care_trust
-
+    @single['result']['primary_care_trust']
   end
 
   def region
-
+    @single['result']['region']
   end
 
   def parish
-
+    @single['result']['parish']
   end
 
   def isoa
-
+    @single['result']['lsoa']
   end
 
   def msoa
-
+    @single['result']['msoa']
   end
 
+  def admin_district
+    @single['result']['admin_district']
+  end
+
+  def incode
+    @single['result']['incode']
+  end
 
 
 
